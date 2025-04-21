@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Générateur de Lettre de Résiliation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans p-4">
+  <div class="max-w-2xl mx-auto bg-white p-6 rounded-2xl shadow-xl">
+    
+    <!-- PUB #1 Haut de page -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-client="ca-pub-XXXXXXX"
+         data-ad-slot="YYYYYYY"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <h1 class="text-2xl font-bold mb-4 text-center">Générateur de Lettre de Résiliation</h1>
+    
+    <form id="form" class="space-y-4">
+      <div>
+        <label class="block font-semibold">Votre nom et prénom</label>
+        <input type="text" id="nom" class="w-full p-2 border rounded-xl" required />
+      </div>
+      <div>
+        <label class="block font-semibold">Votre adresse</label>
+        <input type="text" id="adresse" class="w-full p-2 border rounded-xl" required />
+      </div>
+      <div>
+        <label class="block font-semibold">Nom de l’entreprise à résilier</label>
+        <input type="text" id="entreprise" class="w-full p-2 border rounded-xl" required />
+      </div>
+      <div>
+        <label class="block font-semibold">Date du jour</label>
+        <input type="date" id="date" class="w-full p-2 border rounded-xl" required />
+      </div>
+      <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl w-full">Générer la lettre</button>
+    </form>
+
+    <!-- PUB #2 Après formulaire -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-client="ca-pub-XXXXXXX"
+         data-ad-slot="YYYYYYY"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <div id="output" class="mt-6 hidden">
+      <h2 class="text-xl font-bold mb-2">Votre lettre :</h2>
+      <div id="lettre" class="whitespace-pre-wrap bg-gray-100 p-4 rounded-xl border"></div>
+      <button onclick="copyText()" class="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-xl">Copier la lettre</button>
+    </div>
+
+    <!-- PUB #3 Bas de page -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-client="ca-pub-XXXXXXX"
+         data-ad-slot="YYYYYYY"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+  </div>
+
+  <script>
+    const form = document.getElementById('form');
+    const output = document.getElementById('output');
+    const lettreDiv = document.getElementById('lettre');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const nom = document.getElementById('nom').value;
+      const adresse = document.getElementById('adresse').value;
+      const entreprise = document.getElementById('entreprise').value;
+      const date = document.getElementById('date').value;
+
+      const lettre = `
+${nom}
+${adresse}
+
+À l'attention du service résiliation
+${entreprise}
+
+${date}
+
+Objet : Résiliation de contrat
+
+Madame, Monsieur,
+
+Par la présente, je vous informe de ma décision de résilier mon contrat auprès de votre établissement.
+Conformément aux conditions générales, je vous remercie de bien vouloir prendre en compte cette demande et de m’indiquer la date effective de résiliation.
+
+Je vous prie d’agréer, Madame, Monsieur, l’expression de mes salutations distinguées.
+
+${nom}
+`;
+
+      lettreDiv.textContent = lettre;
+      output.classList.remove
